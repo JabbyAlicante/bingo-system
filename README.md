@@ -1,2 +1,1 @@
-# bingo-system
-Real-Time Bingo System
+# Real-Time Bingo System
