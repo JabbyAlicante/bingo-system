@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dd5ewn4aw/image/upload/v1740371503/bingoicon/kgdusino4vlzwr7d5kw2.png">
+    <title>Bingo Game</title>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Bingo Game</h1>
+    <h2>Time Left: <span id="timer">59</span> seconds</h2>
+    <h2>Winning Numbers: <span id="numbers">Waiting...</span></h2>
+
+    <script>
+        const socket = io("http://localhost:3000");
+
+        socket.on("game_update", (data) => {
+            document.getElementById("timer").textContent = data.timer;
+            document.getElementById("numbers").textContent = data.winningNumbers;
+        });
+    </script>
+</body>
+</html>
